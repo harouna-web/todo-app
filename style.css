@@ -287,6 +287,19 @@ input[type="checkbox"]:checked~ .todo-text{
 input[type="checkbox"]{
   display: none;
 }
+@media (max-width:399px){
+  .search-icon{
+  position: absolute;
+  top:60vw;
+  left: 65vw;
+  pointer-events: none;
+  
+ 
+
+  
+}
+
+}
 
 @media (max-width:500px){
   .search-icon{
@@ -306,4 +319,5 @@ input[type="checkbox"]{
   padding: 15px;
   height: auto;
 }
+
 }
