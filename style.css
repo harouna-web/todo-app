@@ -172,7 +172,7 @@ h1{
 }
 #add-button{
   padding: 0 30px;
-  margin-right: -2em;
+  margin-right: 0;
   background-color: var(--accent-color);
   color: var(--backgroun-color);
   border: none;
@@ -206,6 +206,8 @@ h1{
   padding-right:0 ;
   flex-grow: 1;
   transition: 200ms ease;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 .delete-button{
   max-width: 10%;
@@ -234,7 +236,6 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 .edit-button svg{
   
@@ -296,10 +297,10 @@ input[type="checkbox"]{
   left: 47vw; 
 }
 }
-@media (width=400px){
+@media (width=360px){
   .search-icon{
   display: block !important;
-  top:60vw;
+  top:67.5vw;
   left: 65vw;
 }
 }

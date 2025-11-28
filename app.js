@@ -73,6 +73,8 @@ function createTodoItem(todo, todoIndex) {
     <small>Created: ${todo.createdAt}</small>
 
      <button class="edit-button" title="Edit"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--secondary-color)"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg></button>
+
+
     <button class="delete-button"  title="Delete">
       <svg fill="var(--secondary-color)" xmlns="http://www.w3.org/2000/svg"
         height="24" viewBox="0 -960 960 960" width="24">
@@ -83,7 +85,7 @@ function createTodoItem(todo, todoIndex) {
     </button>
 
   `;
-   const textLabel = todoLI.querySelector('.todo-text');
+  const textLabel = todoLI.querySelector('.todo-text');
   const editBtn = todoLI.querySelector('button[title="Edit"]');
   function startEditing(){
     // create input and replace label
@@ -103,13 +105,12 @@ function createTodoItem(todo, todoIndex) {
         saveTodos();
 
       }
-      // put label back
+      // putting label back
       const newLabel = document.createElement('label');
       newLabel.className = `todo-text ${allTodos[todoIndex].completed ? 'completed' : ''}`;
       newLabel.setAttribute('for', todoId);
       newLabel.textContent = allTodos[todoIndex].text;
       input.replaceWith(newLabel);
-      // update display (in case order changed)
       updateTodoList();
     }
 
@@ -121,21 +122,21 @@ function createTodoItem(todo, todoIndex) {
       } else if (e.key === 'Escape') {
         finishEditing(false);
       }
-  
-      console.log(" finishEditing()");
-      
     });
   }
-
   editBtn.addEventListener('click', startEditing);
-   textLabel.addEventListener('dblclick', startEditing);
+  textLabel.addEventListener('dblclick', startEditing);
   
+
+
   // DELETE BUTTON
   const deleteButton = todoLI.querySelector(".delete-button");
   deleteButton.addEventListener("click", () => {
     deleteTodoItem(todoIndex);
   });
  
+
+
 
   // CHECKBOX
   const checkbox = todoLI.querySelector("input");
@@ -146,8 +147,6 @@ function createTodoItem(todo, todoIndex) {
 
   checkbox.checked = todo.completed;
   return todoLI;
-  
-
 }
 
 
@@ -160,6 +159,8 @@ function deleteTodoItem(todoIndex) {
   updateTodoList();
 }
 
+
+
 // Delete all todos
 clearAllBtn.addEventListener('click', () => {
   if (allTodos.length === 0) return alert('No todos to clear.');
@@ -169,6 +170,8 @@ clearAllBtn.addEventListener('click', () => {
     updateTodoList();
   }
 });
+
+
 // SEARCH TODOS LIVE
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.trim().toLowerCase();
@@ -180,6 +183,9 @@ searchInput.addEventListener("input", () => {
   updateTodoList(filtered);
 });
 
+
+
+/*-------------LOCAL STORAGE----------------*/
 //To save in the local storage
 function saveTodos(){
   localStorage.setItem("todos",JSON.stringify(allTodos))
@@ -193,6 +199,9 @@ function getTodos() {
     return [];
   }
 }
+
+
+
 /*================THEME AND MODE================*/
 const themeToggle = document.getElementById("theme-toggle");
 const lightIcon = document.getElementById("light-icon");
